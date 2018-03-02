@@ -48,7 +48,7 @@ export class CothorityWebsocket {
     return new Promise((resolve, reject) => {
       this.sign_socket = createSocket(
         this.sign_socket,
-        address + '/CoSi/SignatureRequest',
+        address + '/ftCoSiService/SignatureRequest',
         (e) => reject(e),
         (data) => resolve(CothorityMessages.decodeSignatureResponse(data)),
         CothorityMessages.createSignatureRequest(hash, roster)

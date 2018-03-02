@@ -100,7 +100,7 @@ export default class ModuleRandom extends React.Component {
         setTimeout(() => self._checkCountDown(), REFRESH_COUNTER_INTERVAL);
       })
       .catch((e) => {
-        console.error(e);
+        console.log(e);
 
         this.setState({
           error: 'Oops, something went wrong.'

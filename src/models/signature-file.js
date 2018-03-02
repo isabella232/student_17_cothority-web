@@ -15,7 +15,7 @@ export default class SignatureFile {
     this.filename = null;
     this.signature = null;
     this.hash = null;
-    this.genesisID = null;
+    this.skipchainID = null;
     this.blockID = null;
     this.offlineServers = null;
   }
@@ -71,12 +71,12 @@ export default class SignatureFile {
    *
    * @param {String|Uint8Array} id
    */
-  setGenesisID(id) {
+  setSkipchainID(id) {
     if (typeof id !== 'string') {
       id = buf2hex(id);
     }
 
-    this.genesisID = id;
+    this.skipchainID = id;
   }
 
   /**
@@ -84,8 +84,8 @@ export default class SignatureFile {
    * @param {Boolean} hex
    * @returns {String|Uint8Array}
    */
-  getGenesisID(hex = false) {
-    return hex ? this.genesisID : hex2buf(this.genesisID);
+  getSkipchainID(hex = false) {
+    return hex ? this.skipchainID : hex2buf(this.skipchainID);
   }
 
   /**
@@ -133,12 +133,12 @@ export default class SignatureFile {
       filename: this.filename,
       signature: this.signature,
       hash: this.hash,
-      genesisID: this.genesisID,
+      skipchainID: this.skipchainID,
       blockID: this.blockID,
       offlineServers: this.offlineServers || []
     };
 
-    const date = Moment().format("YYYY-MM-DD-hh-mm-ss");
+    const date = Moment().format("YYYY-MM-DD-HH-mm-ss");
     saveAs(new Blob([JSON.stringify(body, null, '\t')], {type : 'application/json'}), `signature_${date}.json`); // eslint-disable-line
   }
 
@@ -154,14 +154,14 @@ export default class SignatureFile {
       throw new Error("Signature file malformed");
     }
 
-    if (!data.genesisID || !data.blockID || !data.hash || !data.signature) {
+    if (!data.skipchainID || !data.blockID || !data.hash || !data.signature) {
       throw new Error("Missing data in signature file.");
     }
 
     this.filename = data.filename || '';
     this.signature = data.signature;
     this.hash = data.hash;
-    this.genesisID = data.genesisID;
+    this.skipchainID = data.skipchainID;
     this.blockID = data.blockID;
     this.offlineServers = data.offlineServers || [];
   }

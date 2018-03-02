@@ -14,7 +14,7 @@ global.FileReader = class {
         result: JSON.stringify({
           signature: '000000',
           hash: '11',
-          genesisID: 'aa',
+          skipchainID: 'aa',
           blockID: 'bb',
           offlineServers: ['0.0.0.0:1000']
         })

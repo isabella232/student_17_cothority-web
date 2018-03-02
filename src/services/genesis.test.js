@@ -15,11 +15,11 @@ describe('services:genesis', () => {
       json() {
         return Promise.resolve({
           Blocks: [{
-            GenesisID: '00',
+            SkipchainID: '00',
             Data: 'https://google.ch',
             Servers: []
           }, {
-            GenesisID: '11',
+            SkipchainID: '11',
             Data: '',
             Servers: ['127.0.0.1:7000']
           }]
@@ -97,7 +97,7 @@ describe('services:genesis', () => {
   it('should get the latest block with a genesis id', () => {
     fetch.mockReturnValue(Promise.resolve({
       json: () => Promise.resolve({
-        GenesisID: '00',
+        SkipchainID: '00',
         Servers: []
       })
     }));
@@ -118,7 +118,7 @@ describe('services:genesis', () => {
   it('should get the latest block', () => {
     fetch.mockReturnValue(Promise.resolve({
       json: () => Promise.resolve({
-        GenesisID: '00',
+        SkipchainID: '00',
         Servers: []
       })
     }));
@@ -138,7 +138,7 @@ describe('services:genesis', () => {
   it('should reject when getting the latest block', () => {
     fetch.mockReturnValue(Promise.resolve({
       json: () => Promise.resolve({
-        GenesisID: '00',
+        SkipchainID: '00',
         Servers: []
       })
     }));

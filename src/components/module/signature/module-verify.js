@@ -173,7 +173,7 @@ export default class ModuleVerify extends React.Component {
               return;
             }
 
-            GenesisService.getLatestFromGenesisID(signFile.getGenesisID(true), signFile.getBlockID(true))
+            GenesisService.getLatestFromGenesisID(signFile.getSkipchainID(true), signFile.getBlockID(true))
               .then((block) => {
                 const pubkey = cryptoJS.aggregateKeys( // eslint-disable-line
                   block.Roster.list
@@ -183,6 +183,7 @@ export default class ModuleVerify extends React.Component {
 
                 hashFile(file).then(
                   (hash) => {
+		console.log("cryptoJS.verify", pubkey, hash, signFile.getSignature())
                     resolve({
                       error: '',
                       isVerified: true,

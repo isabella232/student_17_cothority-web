@@ -95,11 +95,11 @@ export default class ModuleSkipChain extends React.Component {
 
     const rows = genesisList.map(b => {
       return (
-        <FormGroup key={b.GenesisID} check>
+        <FormGroup key={b.SkipchainID} check>
           <Label check>
-            <Input type="radio" name="radio1" checked={b.GenesisID === currGenesis}
-                   onChange={() => this.handleGenesisChange(b.GenesisID)}/>{' '}
-            {b.GenesisID.substr(0, 10)}
+            <Input type="radio" name="radio1" checked={b.SkipchainID === currGenesis}
+                   onChange={() => this.handleGenesisChange(b.SkipchainID)}/>{' '}
+            {b.SkipchainID.substr(0, 10)}
           </Label>
         </FormGroup>
       );

@@ -97,7 +97,7 @@ describe('services:websocket', () => {
 
     const service = new CothorityWebsocket();
     const address = Faker.internet.ip();
-    const server = new Server(`ws://${address}/CoSi/SignatureRequest`);
+    const server = new Server(`ws://${address}/ftCoSiService/SignatureRequest`);
     server.on('message', () => server.send(new Uint8Array([])));
 
     return service.getSignature(new Uint8Array([]), address, []).then((m) => {
@@ -110,7 +110,7 @@ describe('services:websocket', () => {
 
     const service = new CothorityWebsocket();
     const address = Faker.internet.ip();
-    const server = new Server(`ws://${address}/CoSi/SignatureRequest`);
+    const server = new Server(`ws://${address}/ftCoSiService/SignatureRequest`);
     server.on('message', () => server.emit('error'));
 
     return service.getSignature(new Uint8Array([]), address, []).catch((e) => {

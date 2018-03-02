@@ -13,14 +13,14 @@ export class SkipChainService {
    * Given a list of servers and a genesis block id, try to get the latest block and return a promise that will resolve
    * with the list of server's addresses (WebSocket address)
    * @param {Array} servers
-   * @param {String} genesisID
+   * @param {String} skipchainID
    * @returns {Promise}
    */
-  getLatestBlock(servers, genesisID) {
+  getLatestBlock(servers, skipchainID) {
     let index = 0;
 
     return new Promise((resolve, reject) => {
-      if (!servers || !genesisID || servers.length === 0) {
+      if (!servers || !skipchainID || servers.length === 0) {
         reject(new Error("Cannot get the latest updates of the skip-chain."));
       }
 
@@ -33,14 +33,14 @@ export class SkipChainService {
         index++;
 
         if (index < servers.length) {
-          this._getUpdates(servers[index], genesisID).then(onSuccess, onError);
+          this._getUpdates(servers[index], skipchainID).then(onSuccess, onError);
         }
         else {
           reject(new Error("No servers available"));
         }
       };
 
-      this._getUpdates(servers[index], genesisID).then(onSuccess, onError);
+      this._getUpdates(servers[index], skipchainID).then(onSuccess, onError);
     });
   }
 
@@ -48,13 +48,13 @@ export class SkipChainService {
    * Try to get the update list of skipblocks from an address and a genesis block id
    * Parse the response to resolve the promise with the list of WebSocket addresses of the servers
    * @param {String} address - ws address to try
-   * @param {String} genesisID - Hex representation of the genesis block id
+   * @param {String} skipchainID - Hex representation of the genesis block id
    * @returns {Promise.<Array>|*}
    * @private
    */
-  _getUpdates(address, genesisID) {
+  _getUpdates(address, skipchainID) {
 
-    return CothorityWS.getLatestBlock(address, genesisID).then(
+    return CothorityWS.getLatestBlock(address, skipchainID).then(
       (response) => {
         if (!response.Update) {
           throw new Error("Malformed response");

@@ -74,7 +74,7 @@ export default class ModuleHTML extends React.Component {
 
     const rows = genesisList.map(block => {
       return (
-        <div key={block.GenesisID} className="module-html-item" onClick={() => ModuleHTML.handleOpenPage(block.GenesisID)}>
+        <div key={block.SkipchainID} className="module-html-item" onClick={() => ModuleHTML.handleOpenPage(block.SkipchainID)}>
           {ByteBuffer.fromBase64(block.Data).toString('utf8')}
         </div>
       );

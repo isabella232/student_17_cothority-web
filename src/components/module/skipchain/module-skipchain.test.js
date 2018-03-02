@@ -13,7 +13,7 @@ describe('components:module:skipchain:module-skipchain', () => {
 
   beforeEach(() => {
     GenesisService.subscribe = (listener) => {
-      listener.onGenesisUpdate([], [{GenesisID: 'id1', Data: generateData()},{GenesisID: 'id2'}], '');
+      listener.onGenesisUpdate([], [{SkipchainID: 'id1', Data: generateData()},{SkipchainID: 'id2'}], '');
     };
 
     GenesisService.unsubscribe = jest.fn();

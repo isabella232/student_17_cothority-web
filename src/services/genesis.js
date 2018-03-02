@@ -88,7 +88,7 @@ export class GenesisService {
    * @param {String} id hex form of the ID
    */
   setCurrentGenesisID(id) {
-    const block = this.genesisList.filter(b => b.GenesisID === id).pop();
+    const block = this.genesisList.filter(b => b.SkipchainID === id).pop();
     if (block) {
       // if the id exists we fetch the skipchain
       this.curr_genesis = id;
@@ -158,14 +158,14 @@ export class GenesisService {
    * @private
    */
   _fetchStatusForGenesisID(id) {
-    const block = this.genesisList.filter(b => b.GenesisID === id).pop();
+    const block = this.genesisList.filter(b => b.SkipchainID === id).pop();
     if (!block) {
       return this.updateGenesis(new Error("Cannot find the block associated with the genesis ID"));
     }
 
     const servers = block.Servers.map(addr => tcp2ws(addr));
       
-    return SkipChainService.getLatestBlock(servers, hex2buf(block.GenesisID))
+    return SkipChainService.getLatestBlock(servers, hex2buf(block.SkipchainID))
 	  .then((data) => {
         this.blocks = data;
         this.updateGenesis(null);
@@ -177,14 +177,14 @@ export class GenesisService {
 export default new GenesisService()
 
 function getFirstSkipChain(list) {
-    return list[0].GenesisID;
+    return list[0].SkipchainID;
 
     /*
     for (let i = 0; i < list.length; i++) {
 	const block = list[i];
 	
 	if (!ByteBuffer.fromBase64(block.Data).toString('utf8').match(/^(https?|config):\/\//)) {
-	    return block.GenesisID;
+	    return block.SkipchainID;
 	}
     }
     

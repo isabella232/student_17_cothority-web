@@ -8,7 +8,7 @@ describe('models:signature-file', () => {
       filename: 'name',
       signature: 'signature',
       hash: '00',
-      genesisID: '11',
+      skipchainID: '11',
       blockID: '22'
     });
 

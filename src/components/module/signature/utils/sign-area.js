@@ -36,7 +36,7 @@ export default class SignArea extends React.Component {
       error: '',
 
       latestBlock: null,
-      genesisID: ''
+      skipchainID: ''
     };
 
     this.handleBackAction = this.handleBackAction.bind(this);
@@ -67,7 +67,7 @@ export default class SignArea extends React.Component {
    */
   onGenesisUpdate(blocks, genesisList, currGenesis) {
     this.setState({
-      genesisID: currGenesis,
+      skipchainID: currGenesis,
       block: blocks.slice().pop()
     });
   }
@@ -98,15 +98,15 @@ export default class SignArea extends React.Component {
     });
 
     const {file} = this.props;
-    // We assume we have a valid genesis ID and the associated block
+    // We assume we have a valid skipchain ID and the associated block
     // else an error will be displayed before letting the user sign
-    const {genesisID, block} = this.state;
+    const {skipchainID, block} = this.state;
 
     const servers = StatusService.getAvailableRoster().map(r => r.server);
 
     const signFile = new SignatureFile();
     signFile.setFileName(file.name);
-    signFile.setGenesisID(genesisID);
+    signFile.setSkipchainID(skipchainID);
     signFile.setBlockID(block.Hash);
     signFile.setOfflineServers(StatusService.getOfflineRoster().map(r => r.server.address));
 

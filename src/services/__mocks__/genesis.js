@@ -15,10 +15,10 @@ export default new class {
     }];
 
     const genesisList = [{
-      GenesisID: '1',
+      SkipchainID: '1',
       Data: 'aHR0cHM6Ly9kZWRpcy5jaA=='
     },{
-      GenesisID: '2',
+      SkipchainID: '2',
       Data: ''
     }];
 

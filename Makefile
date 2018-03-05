@@ -1,2 +1,2 @@
 deploy:
-	rsync -v -essh -a build/* status2@status.dedis.ch:www
+	rsync -z -v -essh -a build/* agora@agora.dedis.ch:www

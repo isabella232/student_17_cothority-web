@@ -130,10 +130,19 @@ export default new CothorityWebsocket();
  */
 function createSocket(socket, address, error, callback, message) {
   if (!socket || socket.readyState > 2) {
-      const protocol = address.match(/^pulsar.dedis.ch/) ? 'wss' : 'ws';
-      // TODO: Either fix the code that's sending these, or fix this more correctly here.
-      address = address.replace("tcp://", "")  
-      address = address.replace("tls://", "")  
+    // TODO: Either fix the code that's sending these, or fix this more correctly here.
+    address = address.replace("tcp://", "")  
+    address = address.replace("tls://", "")
+
+    address = address.replace("192.33.210.8:9901", "agora.dedis.ch")  
+    address = address.replace("71.19.148.171:9901", "agora.nella.org")  
+    address = address.replace("5.135.161.91:2001", "nikkolasg.xyz")
+    
+    var protocol = 'ws'
+    if (address.match(/^pulsar.dedis.ch|^agora.nella.org|^agora.dedis.ch|^nikkolasg.xyz/)) {
+      protocol = 'wss';
+    }
+
     socket = new WebSocket(`${protocol}://${address}`);
     socket.binaryType = 'arraybuffer';
   }

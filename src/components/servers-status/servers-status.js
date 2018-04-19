@@ -72,9 +72,6 @@ export default class ServersStatus extends React.Component {
       <div className="servers-status">
         <div className="servers-status-info">
           <div>
-            Number of SkipChains: <strong>{genesisList.length}</strong>
-          </div>
-          <div>
             Number of Servers: <strong>{status.length}</strong>
           </div>
         </div>

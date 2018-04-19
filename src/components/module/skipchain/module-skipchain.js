@@ -106,7 +106,7 @@ export default class ModuleSkipChain extends React.Component {
     });
 
     return (
-      <Module title="SkipChain" icon="chain" className="module-skip-chain">
+      <Module title="E-voting Master Chains" icon="chain" className="module-skip-chain">
         <Scrollbars style={{width: "100%", position: "absolute", top: "0", bottom: "0"}}
                     renderThumbVertical={props => <div {...props} className="thumb-vertical"/>}>
           {rows}
@@ -123,7 +123,7 @@ export default class ModuleSkipChain extends React.Component {
    */
   static _renderError(error) {
     return (
-      <Module title="SkipChain" icon="chain" className="module-skip-chain">
+      <Module title="E-voting Master Chains" icon="chain" className="module-skip-chain">
         <p className="has-error">
           {error.message}
         </p>

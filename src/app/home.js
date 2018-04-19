@@ -6,8 +6,6 @@ import HTMLIFrame from '../components/html-iframe/html-iframe'
 import ModuleSign from '../components/module/signature/module-sign'
 import ModuleVerify from '../components/module/signature/module-verify'
 import ModuleSkipChain from '../components/module/skipchain/module-skipchain'
-// import ModuleHTML from '../components/module/html/module-html'
-import ModuleRandom from '../components/module/random/module-random'
 
 import './home.css';
 
@@ -32,19 +30,8 @@ class Home extends React.Component {
 
         <Container fluid={true}>
           <Row noGutters>
-            <Col xs="auto">
-              <ModuleSign/>
-            </Col>
-            <Col xs="auto">
-              <ModuleVerify/>
-            </Col>
             <Col>
               <ModuleSkipChain/>
-            </Col>
-          </Row>
-          <Row noGutters>
-            <Col xs="auto">
-              <ModuleRandom />
             </Col>
           </Row>
           <Row>

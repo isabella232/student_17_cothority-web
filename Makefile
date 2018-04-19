@@ -1,2 +1,2 @@
 deploy:
-	rsync -v -essh -a build/* status2@status.dedis.ch:www
+	rsync -v -essh -a build/* root@voting-web-prod.epfl.ch:/var/www/html

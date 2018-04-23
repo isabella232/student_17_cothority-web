@@ -1,10 +1,9 @@
 import React from 'react'
 import {Container, Row, Col} from 'reactstrap'
 
+import ChainStatus from '../components/chain-status/chain-status'
 import ServersStatus from '../components/servers-status/servers-status'
 import HTMLIFrame from '../components/html-iframe/html-iframe'
-import ModuleSign from '../components/module/signature/module-sign'
-import ModuleVerify from '../components/module/signature/module-verify'
 import ModuleSkipChain from '../components/module/skipchain/module-skipchain'
 
 import './home.css';
@@ -37,6 +36,11 @@ class Home extends React.Component {
           <Row>
             <Col>
               <ServersStatus/>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <ChainStatus/>
             </Col>
           </Row>
         </Container>

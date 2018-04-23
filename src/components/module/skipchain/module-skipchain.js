@@ -87,6 +87,11 @@ export default class ModuleSkipChain extends React.Component {
    * @returns {XML}
    */
   render() {
+    var names = {
+      'bf87d2c9a7fc0093c659538c00d10910ab24f1c906020834176b90b35ba4eef1': 'Testing chain',
+      '10c466388bcf7836ab0507187a5ce230aa63564fb798d78b74ae9c5212160ef0': 'Another testing chain',
+    }
+    
     const {genesisList, currGenesis, error} = this.state;
 
     if (error) {
@@ -99,7 +104,7 @@ export default class ModuleSkipChain extends React.Component {
           <Label check>
             <Input type="radio" name="radio1" checked={b.SkipchainID === currGenesis}
                    onChange={() => this.handleGenesisChange(b.SkipchainID)}/>{' '}
-            {b.SkipchainID.substr(0, 10)}
+        {b.SkipchainID.substr(0, 10)} { names[b.SkipchainID] }
           </Label>
         </FormGroup>
       );

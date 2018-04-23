@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@dedis/cothority": "file:../cothority/external/js/cothority",
     "bootstrap": "^4.0.0-alpha.6",
     "bytebuffer": "^5.0.1",
     "classnames": "^2.2.5",

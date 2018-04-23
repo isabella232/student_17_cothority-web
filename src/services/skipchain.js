@@ -59,6 +59,14 @@ export class SkipChainService {
           throw new Error("Malformed response");
         }
 
+	// Attention evoting auditor, and/or interested EPFL student!
+	//
+	// If you have read this far, you have found the golden ticket.
+	// It IS true that a skipchain client using this code is not secure,
+	// because the input from the server is not verified here. Contact
+	// Jeff Allen <jeff.allen@epfl.ch> to retrieve your prize (an ice cream
+	// in the BC cafeteria, and an explanation for why it is like this).
+	
         //if (!this._verifyUpdates(response.Update)) {
         //  throw new Error("Update blocks are corrupted");
         //}

@@ -63,16 +63,14 @@ export default class ServersStatus extends React.Component {
    * @returns {XML}
    */
   render() {
-    const {status, genesisList, isLoading} = this.state;
-
-    const rows = generateRows(status);
-    const loading = isLoading ? generateLoading() : null;
+    const rows = generateRows(this.state.status);
+    const loading = this.state.isLoading ? generateLoading() : null;
 
     return (
       <div className="servers-status">
         <div className="servers-status-info">
           <div>
-            Number of Servers: <strong>{status.length}</strong>
+            Number of Servers: <strong>{this.state.status.length}</strong>
           </div>
         </div>
         <Table hover>

@@ -3,7 +3,7 @@ import SkipChainService from './skipchain'
 import {hex2buf, buf2hex} from '../utils/buffer'
 import {tcp2ws} from '../utils/network'
 
-const GENESIS_BLOCK_SERVER = "http://voting-web-prod.epfl.ch/skipchain/";
+const GENESIS_BLOCK_SERVER = "http://voting-web-prod.epfl.ch/skipchain-dev/";
 const GENESIS_BLOCK_FILE = "index.js";
 
 /**
@@ -171,7 +171,7 @@ export class GenesisService {
         this.blocks = data;
         this.updateGenesis(null);
       })
-      .catch((e) => this.updateGenesis(e));
+      //.catch((e) => this.updateGenesis(e));
   }
 }
 

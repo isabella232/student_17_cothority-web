@@ -71,21 +71,14 @@ export default class HTMLIFrame extends React.Component {
    * @returns {XML}
    */
   render() {
-    const {html} = this.state;
-
-    if (!html) {
-      // hide the whole component if we don't show anything
-      return null;
-    }
-
+    // EVOTING HACK: We are stealing this iframe to do our own user education.
     return (
-      <div className="block-iframe">
-        <div>
-          DEDIS WebSite Emulator
-          <span><a href="#" onClick={this.handleBack}>Back</a></span>
-        </div>
-        <iframe src={`data:text/html;base64,${btoa(html)}`}></iframe>
-      </div>
+	<div style={{padding: '20px'}}>
+	<p>Félicitations, vous avez trouvé la page "Comment ça marche". Si vous voulez juste voter, cliquez sur "retour" dans votre navigateur.</p>
+	<p>Congratulations, you&#39;ve found the "How this Works" page. If you just want to vote, click "back" in your browser.</p>
+	<p>Otherwise, take a moment to <a href="https://github.com/dedis/epfl-evoting/tree/master/evoting/about">read an explanation</a> of what you see here.
+	This page works best from the EPFL network, so if you are outside you may want to turn on your VPN now.</p>
+	</div>
     );
   }
 }

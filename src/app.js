@@ -6,6 +6,16 @@ import {
 
 import Home from './app/home'
 
+// EVOTING HACK:
+//
+// It HTTPS, then redirect to HTTP, because we know that the evoting conodes cannot talk
+// HTTPS.
+//
+if (document.location.href.startsWith("https:")) {
+  var to=document.location.href;
+  document.location.href = to.replace("https://", "http://");
+}
+
 /**
  * Entry point of the application
  * External routes are used to integrate modules in an IFrame for distant website

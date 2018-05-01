@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dedis/cothority": "^1.1.8",
+    "@dedis/cothority": "^1.1.10",
     "ajv": "^6.4.0",
     "bootstrap": "^4.1.0",
     "bytebuffer": "^5.0.1",

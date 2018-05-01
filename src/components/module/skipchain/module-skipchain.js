@@ -88,8 +88,7 @@ export default class ModuleSkipChain extends React.Component {
    */
   render() {
     var names = {
-      'bf87d2c9a7fc0093c659538c00d10910ab24f1c906020834176b90b35ba4eef1': 'Testing chain',
-      '10c466388bcf7836ab0507187a5ce230aa63564fb798d78b74ae9c5212160ef0': 'Another testing chain',
+      '3f6c36310ec2ac05bdd46455a9d45b2d32991e13d5d6762ae18aedf330d05007': 'Testing Elections',
     }
     
     const {genesisList, currGenesis, error} = this.state;

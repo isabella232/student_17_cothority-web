@@ -64,6 +64,7 @@ function generateRows(blocks) {
 }
 
 function blockContents(b) {
+  //console.log("block", b)
   if (b.Data.length === 0) {
     return "none"
   }
@@ -85,13 +86,27 @@ function blockContents(b) {
     return "Encrypted ballot cast by: " + tx.user
   }
   if (tx.mix !== null) {
-    return "Ballot shuffle operation by: " + tx.user + " on node " + tx.mix.node;
+    const addrs = b.Roster.list.filter( (x) => hexEqual(x.id, tx.mix.nodeid))
+    return "Ballot shuffle operation by: " + tx.user + " on node " + addrs[0].address;
   }
   if (tx.partial !== null) {
-    return "Partial ballot decryption by: " + tx.user + " on node " + tx.partial.node;
+    const addrs = b.Roster.list.filter( (x) => hexEqual(x.id, tx.partial.nodeid))
+    return "Partial ballot decryption by: " + tx.user + " on node " + addrs[0].address;
   }
   
   return 'Unknown type';
+}
+
+function hexEqual(a, b) {
+  if (a.length !== b.length) {
+    return false
+  }
+  for (var i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) {
+      return false
+    }
+  }
+  return true
 }
 
 function hex(arr) {

@@ -74,6 +74,7 @@ export default class HTMLIFrame extends React.Component {
     // EVOTING HACK: We are stealing this iframe to do our own user education.
     return (
 	<div style={{padding: '20px'}}>
+	<h1>Comment ça marche? How does it work?</h1>
 	<p>Félicitations, vous avez trouvé la page "Comment ça marche". Si vous voulez seulement voter, cliquez sur "retour" dans votre navigateur.</p>
 	<p>Congratulations, you&#39;ve found the "How this Works" page. If you just want to vote, click "back" in your browser.</p>
 	<p>Otherwise, take a moment to <a href="https://github.com/dedis/epfl-evoting/tree/master/evoting/about/README.md">read an explanation</a> of what you see here.

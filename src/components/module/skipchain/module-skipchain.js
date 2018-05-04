@@ -88,8 +88,8 @@ export default class ModuleSkipChain extends React.Component {
    */
   render() {
     var names = {
-      'f4ca1bc0468c2adef7bf54e2d26715b27acc1ce4b136405ce575ee5cba97a7d8': 'voting-web-beta.epfl.ch',
-      '36f0ce6b16995e06163cd394334b1e0aeef032628592df837e6bbed4dff431ab': 'voting.epfl.ch - Testing Elections',
+      '106d04703e855a44a8557e4713a166bea59b2f3632f6a72a3db8ab8804906d6c': 'voting-web-beta.epfl.ch',
+      '7d1e24a2cf872ca383cce6fe192089e140f7fbc755c10b212ace29fa7cc5d221': 'voting.epfl.ch - Testing Elections',
     }
     
     const {genesisList, currGenesis, error} = this.state;

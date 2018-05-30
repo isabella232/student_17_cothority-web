@@ -11,7 +11,7 @@ import Home from './app/home'
 // It HTTPS, then redirect to HTTP, because we know that the evoting conodes cannot talk
 // HTTPS.
 //
-if (document.location.href.startsWith("https:")) {
+if (document.location.href.substr(0, 6) === 'https:') {
   var to=document.location.href;
   document.location.href = to.replace("https://", "http://");
 }

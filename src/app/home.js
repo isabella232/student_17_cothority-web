@@ -32,19 +32,8 @@ class Home extends React.Component {
 
         <Container fluid={true}>
           <Row noGutters>
-            <Col xs="auto">
-              <ModuleSign/>
-            </Col>
-            <Col xs="auto">
-              <ModuleVerify/>
-            </Col>
-            <Col>
+            <Col width="100%">
               <ModuleSkipChain/>
-            </Col>
-          </Row>
-          <Row noGutters>
-            <Col xs="auto">
-              <ModuleRandom />
             </Col>
           </Row>
           <Row>

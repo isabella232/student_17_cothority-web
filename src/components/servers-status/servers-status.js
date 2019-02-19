@@ -88,7 +88,7 @@ export default class ServersStatus extends React.Component {
               <th>Port Number</th>
               <th>Uptime</th>
               <th>Traffic [Bps]</th>
-              <th>Services</th>
+              <th className="svc">Services</th>
               <th>Version</th>
             </tr>
           </thead>
@@ -144,7 +144,7 @@ function generateRows(status) {
         <td>{data.Port}</td>
         <td>{formatUptime(data.Uptime)}</td>
         <td>{parseTraffic(data.RX_bytes, data.TX_bytes, data.Uptime)}</td>
-        <td>{data.Available_Services}</td>
+        <td className="svc">{data.Available_Services}</td>
         <td>{data.Version}</td>
       </tr>
     );

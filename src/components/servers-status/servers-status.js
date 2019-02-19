@@ -124,6 +124,10 @@ function generateRows(status) {
     let data;
     if (status.status) {
       data = status.status.Generic.field;
+	  // cheat and move the version over to where the code expects it.
+	  if (status.status.Conode) {
+		data.Version = status.status.Conode.field["version"]
+	  }
     } else {
       data = {
         className: 'has-error',

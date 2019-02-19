@@ -37,7 +37,7 @@ export class StatusService {
     }
 
     this.status = {};
-    this.servers = blocks.slice().pop().Roster.list.map(block => tcp2ws(block.address));
+    this.servers = blocks.slice().pop().roster.list.map(block => tcp2ws(block.address));
     this.genesisList = genesisList;
 
     this._updateStatus();
@@ -110,12 +110,12 @@ export class StatusService {
     const self = this;
 
     this.servers.forEach((address, i) => CothorityWS.getStatus(address)
-			 .then((response) => {
-			   response.timestamp = Date.now(); // add the timestamp of the last check
-			   self.status[address] = response;
-			   self.triggerUpdate();
+						 .then((response) => {
+						   response.timestamp = Date.now(); // add the timestamp of the last check
+						   self.status[address] = response;
+						   self.triggerUpdate();
 			 })
-			 .catch(() => {
+			 .catch((err) => {
 			   self.status[address] = {
 			     timestamp: Date.now(),
 			     server: {address}

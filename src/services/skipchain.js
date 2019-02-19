@@ -28,7 +28,8 @@ export class SkipChainService {
         resolve(blocks);
       };
 
-      const onError = () => {
+      const onError = (err) => {
+		console.log("get latest block, err", err)
         // Try the next server
         index++;
 
@@ -55,7 +56,7 @@ export class SkipChainService {
   _getUpdates(address, genesisID) {
     return CothorityWS.getLatestBlock(address, genesisID).then(
       (response) => {
-        if (!response.Update) {
+        if (!response.update) {
           throw new Error("Malformed response");
         }
 
@@ -63,7 +64,7 @@ export class SkipChainService {
         //  throw new Error("Update blocks are corrupted");
         //}
 
-        return response.Update;
+        return response.update;
       }
 
     );

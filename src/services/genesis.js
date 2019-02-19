@@ -28,12 +28,11 @@ export class GenesisService {
     this._fetch_request = fetch(GENESIS_BLOCK_SERVER + GENESIS_BLOCK_FILE, {headers: {'Content-Type': 'application/json'}})
       .then(
           (response) => response.json().then(data => {
-          // We keep the list of available blocks
-	  console.log("got index.js");
-          this.genesisList = data.Blocks;
-          this.curr_genesis = getFirstSkipChain(this.genesisList);
-
-          this._request = this._fetchStatusForSkipchainID(this.curr_genesis);
+			// We keep the list of available blocks
+			console.log("got index.js");
+			this.genesisList = data.Blocks;
+			this.curr_genesis = getFirstSkipChain(this.genesisList);
+			this._request = this._fetchStatusForSkipchainID(this.curr_genesis);
         })
       )
       .catch((error) => {

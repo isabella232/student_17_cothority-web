@@ -82,9 +82,9 @@ export default class HTMLIFrame extends React.Component {
       <div className="block-iframe">
         <div>
           DEDIS WebSite Emulator
-          <span><a href="#" onClick={this.handleBack}>Back</a></span>
+          <span><a href="/" onClick={this.handleBack}>Back</a></span>
         </div>
-        <iframe src={`data:text/html;base64,${btoa(html)}`}></iframe>
+        <iframe title="The Frame" src={`data:text/html;base64,${btoa(html)}`}></iframe>
       </div>
     );
   }

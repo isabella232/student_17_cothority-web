@@ -122,17 +122,17 @@ function generateLoading() {
 function generateRows(status) {
   return status.map(status => {
     let data;
-    if (status.system) {
-      data = status.system.Generic.field;
+    if (status.status) {
+      data = status.status.Generic.field;
     } else {
       data = {
         className: 'has-error',
-        Host: status.server.address
+        Host: status.serveridentity.address
       };
     }
 
     return (
-      <tr key={status.server.address} className={data.className}>
+      <tr key={status.serveridentity.address} className={data.className}>
         <td>{data.Description}</td>
         <td><LastUpdate timestamp={status.timestamp}/></td>
         <td>{data.Host}</td>

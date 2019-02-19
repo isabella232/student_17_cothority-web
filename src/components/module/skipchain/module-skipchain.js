@@ -90,6 +90,7 @@ export default class ModuleSkipChain extends React.Component {
     const {genesisList, currGenesis, error} = this.state;
 
     if (error) {
+	  console.log("err", error)
       return ModuleSkipChain._renderError(error);
     }
 
